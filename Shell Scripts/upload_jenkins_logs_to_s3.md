@@ -1,3 +1,11 @@
+This script automates the process of uploading Jenkins build log files created on the current day to an AWS S3 bucket. It checks each job directory within the Jenkins home directory, identifies the build logs created today, and uploads them to a structured path within the specified S3 bucket.
+
+**Pre-Requestives:**
+1. AWS CLI
+2. AWS IAM Credentials
+3. Jenkins installed in local machine
+4. AWS S3 Bucket available
+
 ```bash
 #!/bin/bash
 
@@ -37,5 +45,4 @@ for job_dir in "$JENKINS_HOME/jobs/"*/; do
         fi
     done
 done
-
 ```
