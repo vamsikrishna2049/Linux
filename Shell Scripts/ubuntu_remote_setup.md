@@ -1,3 +1,7 @@
+Setup of a remote desktop environment on an Ubuntu system. It installs necessary software like XFCE4, XRDP, and Ubuntu Desktop to enable remote desktop access. 
+Additionally, it creates a new user with the provided credentials, installs media and development tools (VLC, Microsoft Edge Beta, and Visual Studio Code), configures firewall rules, and installs NoMachine for remote access.
+
+```bash
 #!/bin/bash
 set -e
 
@@ -38,8 +42,6 @@ sudo sh -c 'echo "deb [arch=amd64 signed-by=/usr/share/keyrings/packages.microso
 sudo apt update
 sudo apt install code
 
-
-
 #TCP 4000 enable
 sudo ufw status
 sudo ufw enable
@@ -49,3 +51,4 @@ sudo ufw status
 #Install nomachine
 wget https://download.nomachine.com/download/8.5/Linux/nomachine_8.5.3_1_amd64.deb
 apt install ./nomachine_8.5.3_1_amd64.deb
+```
