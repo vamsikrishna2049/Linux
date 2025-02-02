@@ -1,0 +1,12 @@
+How would you open a file in read-only mode using the vim editor?	
+		vim -R <filename>
+===============================================================================================================================================================================
+How would you search for a specific Employee ID in a file using the vim editor?
+		vim +/<employee id to be searched> <filename>
+===============================================================================================================================================================================
+How to jump to a particular line in a file using vim editor?
+			vim +<line number> <filename>
+===============================================================================================================================================================================
+How do you sort the entries in a text file in ascending order?
+This can be done using the sort command.
+		sort sample.txt

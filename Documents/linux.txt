@@ -1,0 +1,79 @@
+
+How to restart ubuntu server
+sudo reboot
+==========================================================================================
+How to reset ubuntu server
+sudo systemctl reboot --force
+
+Note:
+This will initiate a system reset, and the server will restart shortly after. 
+Note that you need to have administrative privileges to run the sudo systemctl reboot --force command.
+==========================================================================================
+How to clear history in ubuntu?
+export HISTSIZE=0
+
+Note:
+	This will prevent Ubuntu from recording your command history in future sessions.
+==========================================================================================
+How to start tracking history in ubuntu?
+Ubuntu keeps a record of the commands you have executed in the terminal by default. You can view the command history by opening a terminal and typing the following command:
+history
+This will show you a list of the commands you have executed, along with a number for each command.
+
+If you want to keep a more detailed history of your activities in Ubuntu, including commands executed in the terminal as well as files accessed and applications launched, you can use the auditd package.
+
+To install auditd, open a terminal and type:
+sudo apt-get update
+sudo apt-get install auditd
+Once auditd is installed, you can start tracking history by creating an audit rule. To do this, open the /etc/audit/rules.d/audit.rules file in a text editor:
+
+sudo nano /etc/audit/rules.d/audit.rules
+Then, add the following rule to track all commands and file access events:
+
+-a exit,always -F arch=b64 -S execve -S open -S openat -F key=audit_history
+Save and close the file, and then restart the auditd service:
+
+sudo service auditd restart
+From now on, all your activities will be tracked and recorded in the /var/log/audit/audit.log file. You can view this file using the auditd tools, such as ausearch or aureport.
+
+Note that tracking history in this way can generate a lot of data and potentially impact system performance, so it's recommended to configure the rules to track only the events that are most relevant to your needs.
+==========================================================================================
+
+
+
+
+
+nettools in ubuntu
+net-tools is a package that provides a set of command-line tools for managing and troubleshooting network connections in Ubuntu. The package is available in the Ubuntu repositories and can be installed using the apt package manager.
+
+To install net-tools, you can open a terminal and type the following command:
+
+sudo apt-get update
+sudo apt-get install net-tools
+Once installed, you can use the following command-line tools provided by net-tools:
+
+ifconfig: displays information about network interfaces, including IP addresses, netmasks, and hardware addresses.
+arp: displays and modifies the Address Resolution Protocol (ARP) cache, which maps network addresses (such as IP addresses) to hardware addresses (such as MAC addresses).
+route: displays and modifies the kernel routing table, which is used by the operating system to determine how to send packets to different networks and hosts.
+netstat: displays information about active network connections, including the protocol, local and remote addresses, and state.
+ss: a newer replacement for netstat with more features and better performance.
+Note that net-tools is an older package and some of its tools are deprecated and replaced by newer utilities like iproute2 package which is installed by default in modern Ubuntu systems. Therefore, it is recommended to use the newer utilities instead of net-tools whenever possible.
+==========================================================================================
+utils package in ubuntu
+The utils package is not a standard package in Ubuntu. It's possible that you are referring to one of the many packages that have "utils" in their name, as this is a common naming convention for utility packages.
+
+Here are some commonly used utility packages in Ubuntu:
+
+coreutils: provides a set of basic system utilities like ls, cp, mv, and rm.
+grep: a command-line utility for searching plain-text data for lines that match a specified pattern.
+sed: a command-line utility for manipulating text files using regular expressions.
+awk: a programming language and command-line utility for manipulating text files.
+curl: a command-line utility for transferring data over various protocols like HTTP, HTTPS, FTP, etc.
+tar: a command-line utility for archiving and compressing files and directories.
+zip and unzip: command-line utilities for creating and extracting ZIP archives.
+htop: an interactive process viewer and system monitor.
+To install any of these packages, you can use the apt package manager. For example, to install htop, you can type:
+
+sudo apt-get update
+sudo apt-get install htop
+Note that this is not an exhaustive list of utility packages in Ubuntu, as there are many other packages available in the repositories for various purposes.

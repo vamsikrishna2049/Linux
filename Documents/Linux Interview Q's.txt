@@ -1,0 +1,113 @@
+Write a bash script to delete all the files in the current directory that contains the word “linux”.
+	for i in *linux*; do rm $i; done
+
+===============================================================================================================================================================================
+How would you schedule a task in Linux?
+There are two commands to schedule tasks in Linux: cron and at.
+
+The cron command is used to repeatedly schedule a task at a specific time. 
+The tasks are stored in a cron file and then executed using the cron command.
+The cron command reads the string from this file and schedules the task. 
+
+The syntax for the string to enter in the cron file is as follows:
+			<minute> <hour> <day> <month> <weekday> <command>
+
+Suppose you want to run a command at 4 pm every Sunday, then the string would be:
+
+0 16 * * 0 <command>
+
+The at command is used to schedule a task only once at the specified time.
+
+Suppose you want to shut down the system at 6 pm today, then the command for this would be:
+
+$ echo "shutdown now" | at -m 18:00
+
+===============================================================================================================================================================================
+Suppose you try to delete a file using the rm command and the deletion fails. What could be the possible reason?
+	The path specified to the file or the file name mentioned might be wrong
+	The user trying to delete the file might not have permissions to delete the file.
+===============================================================================================================================================================================
+How to identify which shell you are using?
+Open the terminal and run:
+
+$ echo $SHELL
+
+This will print the name of the Shell being used. 
+===============================================================================================================================================================================
+How can you login to another system in your network from your system?
+SSH can be used for this. The Syntax is as follows:
+
+ssh <username>@<ip address>
+
+Suppose you want to login into a system with IP address 192.168.5.5 as a user “mike”, then the command would be:
+
+ssh mike@192.168.5.5
+===============================================================================================================================================================================
+Explain the free command.
+This command is used to display the free, used, swap memory available in the system. 
+
+Typical free command output. The output is displayed in bytes.
+
+free
+===============================================================================================================================================================================
+command to find to check the disk usage?
+df -h or du -sh /path to directory
+
+
+Diff between top command and ps -aux command?
+Both ps -aux and top commands are used to view information about processes running on a Linux system, but they provide different levels of detail and functionality.
+The ps command stands for "process status" and is used to display information about active processes.
+The top command provides a real-time, interactive view of system processes.
+It continuously updates the displayed information and allows you to monitor system resource usage and manage processes.
+
+What are the ways to check CPU usage?
+- top command
+- htop command
+- mpstat command
+- sar command
+- /proc/stat command
+
+How to check CPU details?
+lscpu command
+
+Explain the steps to create a partition & how to format it with the file system? Identify disk using fdisk -1 or lsblk commands
+fdisk /dev/sdb (Here new disk path /dev/sdb)
+n
+Q,
+p
+1
+:wq
+partprobe
+mkfs.xfs /dev/sdb1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+===============================================================================================================================================================================
