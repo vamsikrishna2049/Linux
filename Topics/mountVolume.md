@@ -89,11 +89,14 @@ Note:
 If no errors occur, the disk is successfully mounted and will mount automatically after a reboot.
 
 ### 7. **Reload the systemd manager:**  
+```bash
 sudo systemctl daemon-reload
+```
 
 ### 8. **mounting the filesystem**
+```bash
 sudo mount -a
-
+```
 mount: (hint) your fstab has been modified, but systemd still uses
        the old version; use 'systemctl daemon-reload' to reload.
 
@@ -103,4 +106,3 @@ df -h
 ```
 
 This should show that your /mnt/data directory is now properly mounted.
-
